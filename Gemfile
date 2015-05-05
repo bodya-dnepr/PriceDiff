@@ -43,3 +43,26 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'figaro', '>= 1.0.0.rc1'
+gem 'pg'
+gem 'puma'
+gem 'simple_form'
+gem 'slim-rails'
+
+group :development do
+  gem 'better_errors'
+  gem 'haml2slim'
+  gem 'html2haml'
+  gem 'hub', :require=>nil
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'rubocop'
+end
+
