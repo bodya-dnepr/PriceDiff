@@ -4,7 +4,12 @@ AllCops:
     - '**/Gemfile'
     - '**/Rakefile'
   Exclude:
-   - 'bin/*'
-   - 'db/seeds.rb'
-   - 'db/schema.rb'
-   - 'vendor/bundle/**/*'
+    - 'bin/*'
+    - 'db/seeds.rb'
+    - 'db/schema.rb'
+    - 'vendor/bundle/**/*'
+    - 'test/test_helper.rb'
+Metrics/LineLength:
+  Enabled: false
+Documentation:
+  Enabled: false
