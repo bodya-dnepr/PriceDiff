@@ -12,5 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require underscore
+//= require underscore.string
+//= require underscore.inflection
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone-validation.js
+//= require backbone.marionette
+//= require backbone/overide
+//= require marionette.polymerview
+//= require backbone/price_diff
 //= require_tree .
+
+
+document.addEventListener('polymer-ready', function() {
+  var navicon = document.getElementById('navicon');
+  var drawerPanel = document.getElementById('drawerPanel');
+  navicon.addEventListener('click', function() {
+    drawerPanel.togglePanel();
+  });
+});

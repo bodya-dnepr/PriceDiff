@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title PriceDiff
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    script src="//www.polymer-project.org/0.5/components/webcomponentsjs/webcomponents.min.js"
+    = html_import_tag 'application'
+    = javascript_include_tag "application"
+    = stylesheet_link_tag    "application", media: 'all'
+    = csrf_meta_tags
+
+  body fullbleed=true layout=true
+    core-drawer-panel#drawerPanel
+      core-header-panel drawer=true
+        core-toolbar#navheader Menu
+        core-menu
+          core-item label="One"
+          core-item label="Two"
+      core-header-panel main=true
+        core-toolbar#mainheader
+          paper-icon-button#navicon icon="menu"
+          | Title
+        div.content
+          | If drawer is hidden, press button to display drawer.
+          p Sample content
+          p Sample content
+          = yield

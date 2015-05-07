@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+core-header-panel {
+  height: 400px;
+  background: white;
+}
+
+.core-header {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  padding: 0 5px;
+  background-color: #4F7DC9;
+  transition: height 0.2s;
+}
+
+core-toolbar {
+  background-color: #03A9F4;
+  color: #FFF;
+}
+
+.content {
+  padding: 20px;
+}
+
+core-drawer-panel:not([narrow]) #navicon {
+  display: none;
+}
