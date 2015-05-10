@@ -81,6 +81,10 @@ GEM
       activemodel (= 4.2.1)
       activesupport (= 4.2.1)
       arel (~> 6.0)
+    activerecord-postgres-earthdistance (0.4.0)
+      pg
+      rails (>= 3.1)
+      rake
     activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -301,6 +305,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activerecord-postgres-earthdistance
   autoprefixer-rails
   better_errors
   byebug

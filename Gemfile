@@ -36,6 +36,7 @@ end
 
 gem 'figaro', '>= 1.0.0.rc1'
 gem 'pg'
+gem 'activerecord-postgres-earthdistance'
 gem 'puma'
 gem 'simple_form'
 gem 'slim-rails'
