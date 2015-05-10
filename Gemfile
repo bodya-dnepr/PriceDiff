@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 gem 'rails', '4.2.1'
+gem 'activeadmin', github: 'activeadmin'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'sass-rails', '~> 5.0'
@@ -18,6 +20,7 @@ gem 'polymer-core-rails'
 gem 'polymer-paper-rails'
 gem 'marionette-rails'
 gem 'rails-backbone', github: 'codebrew/backbone-rails', branch: 'master'
+gem 'skim', github: 'jfirebaugh/skim', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger

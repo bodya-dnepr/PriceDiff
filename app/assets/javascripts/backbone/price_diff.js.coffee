@@ -1,10 +1,15 @@
 #= require_self
 #= require_tree ./templates
 #= require_tree ./models
+#= require_tree ./collections
 #= require_tree ./views
 #= require_tree ./routers
 
 window.App = new Marionette.Application
+  regions:
+    title: "#title"
+    menu: "core-header-panel[drawer] core-menu"
+    content: "core-header-panel[main] div.content"
   Routers: {}
   Views: {}
   Models: {}
@@ -34,3 +39,12 @@ setCollection = (collection, name) ->
         new collection(models, options)
 
       App.Collections[name]
+
+document.addEventListener 'polymer-ready', ->
+  navicon = document.getElementById('navicon')
+  drawerPanel = document.getElementById('drawerPanel')
+  navicon.addEventListener 'click', ->
+    drawerPanel.togglePanel()
+
+  title = new App.Views.TitleView
+  App.title.show(title)
