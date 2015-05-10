@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510190604) do
+ActiveRecord::Schema.define(version: 20150510172903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
   enable_extension "cube"
   enable_extension "earthdistance"
 
@@ -61,13 +60,6 @@ ActiveRecord::Schema.define(version: 20150510190604) do
 
   add_index "shops", ["city_id"], name: "index_shops_on_city_id", using: :btree
   add_index "shops", ["store_chain_id"], name: "index_shops_on_store_chain_id", using: :btree
-
-  create_table "spatial_ref_sys", primary_key: "srid", force: :cascade do |t|
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
-  end
 
   create_table "store_chains", force: :cascade do |t|
     t.string   "name"
