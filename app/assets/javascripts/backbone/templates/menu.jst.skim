@@ -1,0 +1,4 @@
+core-item label="Countries"
+  a href="#!countries"
+core-item label="Cities"
+  a href="#!cities"

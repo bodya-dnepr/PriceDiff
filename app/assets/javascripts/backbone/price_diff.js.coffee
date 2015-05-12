@@ -6,51 +6,29 @@
 #= require_tree ./routers
 
 window.App = new Marionette.Application
-  regions:
-    title: "#title"
-    menu: "core-header-panel[drawer] core-menu"
-    content: "core-header-panel[main] div.content"
   Routers: {}
   Views: {}
   Models: {}
-  Collections: new ObjectObserver({}).open((added) -> _.mapObject added, setCollection )
+  Collections: {}#new ObjectObserver({}).open((added) -> _.mapObject added, setCollection )
 
+$ ->
+  App.addRegions
+    title: "#title"
+    drawerPanel: "#drawerPanel"
+    menu: "core-header-panel[drawer] core-menu"
+    content: "core-header-panel[main] div.content"
 
-setCollection = (collection, name) ->
-  name = _.capitalize(name)
-  if ! !App.Collections[name] and App.Collections[name].hasOwnProperty('new')
-    App.Collections[name]
-  else
-    App.Collections[name] = do ->
-      self = undefined
+  document.addEventListener 'polymer-ready', ->
+    navicon = document.getElementById('navicon')
+    drawerPanel = document.getElementById('drawerPanel')
+    navicon.addEventListener 'click', ->
+      drawerPanel.togglePanel()
+    App.start()
 
-      constructor = ->
+  App.on 'start', (options) ->
+    App.router = new App.Routers.MainRouter
+    Backbone.history.start() if Backbone.history
 
-      App.Collections[name] = (models, options) ->
-        if !self
-          constructor.call this
-          self = this
-        collection.apply this, arguments
-        self
-
-      App.Collections[name].prototype = collection.prototype
-
-      App.Collections[name].new = (models, options) ->
-        new collection(models, options)
-
-      App.Collections[name]
-
-document.addEventListener 'polymer-ready', ->
-  navicon = document.getElementById('navicon')
-  drawerPanel = document.getElementById('drawerPanel')
-  navicon.addEventListener 'click', ->
-    drawerPanel.togglePanel()
-
-  title = new App.Views.TitleView
-  App.title.show(title)
-
-  collection = new App.Collections.Country
-  collection.fetch
-    success: (collection, data, xhr) =>
-      countries = new App.Views.Countries collection: collection
-      App.content.show(countries)
+    (new App.Views.Menu).render()
+    title = new App.Views.TitleView
+    App.title.show(title)

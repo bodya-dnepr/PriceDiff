@@ -29,13 +29,13 @@ App.Models.Shop = Backbone.RelationalModel.extend
   relations: [
     {
       type: Backbone.HasOne
-      key: 'city'
+      key: 'city_id'
       relatedModel: 'App.Models.City'
       collectionType: 'App.Collections.City'
     }
     {
       type: Backbone.HasOne
-      key: 'store_chain'
+      key: 'store_chain_id'
       relatedModel: 'App.Models.StoreChain'
       collectionType: 'App.Collections.StoreChain'
     }

@@ -20,26 +20,18 @@ App.Models.City = Backbone.RelationalModel.extend(
   relations: [
     {
       type: Backbone.HasOne
-      key: 'country'
+      key: 'country_id'
       relatedModel: 'App.Models.Country'
       collectionType: 'App.Collections.Country'
     }
     {
       type: Backbone.HasMany
       key: 'shops'
-      relatedModel: 'App.Models.Shops'
-      collectionType: 'App.Collections.Shops'
+      relatedModel: 'App.Models.Shop'
+      collectionType: 'App.Collections.Shop'
       reverseRelation:
-        key: 'city_id'
-        includeInJSON: 'id'
-    }
-    {
-      type: Backbone.HasMany
-      key: 'store_chains'
-      relatedModel: 'App.Models.StoreChains'
-      collectionType: 'App.Collections.StoreChains'
-      reverseRelation:
-        key: 'city_id'
+        key: 'city'
+        keySource: 'city_id'
         includeInJSON: 'id'
     }
   ]

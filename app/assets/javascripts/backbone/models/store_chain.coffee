@@ -18,8 +18,8 @@ App.Models.StoreChain = Backbone.RelationalModel.extend
     {
       type: Backbone.HasMany
       key: 'shops'
-      relatedModel: 'App.Models.Shops'
-      collectionType: 'App.Collections.Shops'
+      relatedModel: 'App.Models.Shop'
+      collectionType: 'App.Collections.Shop'
       reverseRelation:
         key: 'store_chain_id'
         includeInJSON: 'id'

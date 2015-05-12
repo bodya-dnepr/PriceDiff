@@ -17,10 +17,11 @@ App.Models.Country = Backbone.RelationalModel.extend
   relations: [ {
     type: Backbone.HasMany
     key: 'cities'
-    relatedModel: 'App.Models.Cities'
-    collectionType: 'App.Collections.Cities'
+    relatedModel: 'App.Models.City'
+    collectionType: 'App.Collections.City'
     reverseRelation:
-      key: 'country_id'
+      key: 'country'
+      keySource: 'country_id'
       includeInJSON: 'id'
   } ]
   labels:
