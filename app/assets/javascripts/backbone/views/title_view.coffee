@@ -1,5 +1,5 @@
 title = 'Price Diff'
-App.Views.TitleView = Backbone.Marionette.ItemView.extend(
+App.Views.TitleView = Backbone.Marionette.ItemView.extend
   template: 'title'
 
   initialize: ->
@@ -16,4 +16,3 @@ App.Views.TitleView = Backbone.Marionette.ItemView.extend(
     @title = @el.innerText
   onBeforeDestroy: ->
     @observer.disconnect()
-)

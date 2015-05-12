@@ -1,0 +1,20 @@
+App.Models.<%= model.name %> = Backbone.RelationalModel.extend({
+  fields: <%= JSON.pretty_generate(schema) %>,
+  validation: <%= JSON.pretty_generate(validations) %>,
+  collection: "App.Collections.<%= model.name %>",
+  relations: [<% relations.each do |relation| %>
+    {
+      type: Backbone.<%= "#{relation[:type]}"%>,
+      key: "<%= if relation[:type] == "HasOne" then "#{relation[:model]}".underscore else "#{relation[:model]}".underscore.pluralize end %>",
+      relatedModel: "App.Models.<%= "#{relation[:model]}"%>",
+      collectionType: "App.Collections.<%= "#{relation[:model]}" %>",
+      reverseRelation: {
+        key: "<%= "#{model.name.underscore}_id"%>",
+        includeInJSON: "id"
+      }
+    },
+  <% end %>],
+  labels: {<% schema.keys.each do |key| %>
+    <%= "#{key} : I18n.t('#{model.name.underscore}.labels.#{key}')," %><% end %>
+  }
+});

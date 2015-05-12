@@ -48,3 +48,9 @@ document.addEventListener 'polymer-ready', ->
 
   title = new App.Views.TitleView
   App.title.show(title)
+
+  collection = new App.Collections.Country
+  collection.fetch
+    success: (collection, data, xhr) =>
+      countries = new App.Views.Countries collection: collection
+      App.content.show(countries)

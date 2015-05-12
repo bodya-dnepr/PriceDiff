@@ -17,6 +17,7 @@
 //= require underscore.inflection
 //= require backbone
 //= require backbone_rails_sync
+//= require backbone-relational.js
 //= require backbone-validation.js
 //= require backbone.marionette
 //= require backbone/overide

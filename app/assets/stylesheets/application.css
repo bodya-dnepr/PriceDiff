@@ -24,10 +24,6 @@ core-toolbar {
   color: #FFF;
 }
 
-.content {
-  padding: 20px;
-}
-
 core-drawer-panel:not([narrow]) #navicon {
   display: none;
 }

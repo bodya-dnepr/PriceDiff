@@ -50,10 +50,11 @@ Backbone.Collection::fetchOne = (id, options) ->
   this
 
 Backbone.Marionette.Renderer.render = (template, data) ->
-  if !JST[template] and !_.trim(template)
+  tpl_file = "backbone/templates/#{template}"
+  if !JST[tpl_file] and !_.trim(template)
     throw 'Template \'' + template + '\' not found!'
-  else if JST[template]
-    return JST[template](data)
+  else if JST[tpl_file]
+    return JST[tpl_file](data)
   else
     return _.template(template, data, variable: 'args')
   return
