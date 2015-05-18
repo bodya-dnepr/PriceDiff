@@ -1,17 +1,12 @@
 ActiveAdmin.register Price do
+  permit_params :amount, :goods_id, :shop_id
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
-
-
+  form do |f|
+    f.inputs f.object.class do
+      f.input :goods, collection: Goods.all.map {|g| [g.full_name, g.id]  }
+      f.input :shop
+      f.input :amount
+   end
+   f.actions
+  end
 end
