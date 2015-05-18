@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510172903) do
+ActiveRecord::Schema.define(version: 20150518130739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,49 @@ ActiveRecord::Schema.define(version: 20150510172903) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "goods", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "product_property_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "goods", ["product_property_id"], name: "index_goods_on_product_property_id", using: :btree
+
+  create_table "prices", force: :cascade do |t|
+    t.decimal  "amount"
+    t.integer  "goods_id"
+    t.integer  "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "prices", ["goods_id"], name: "index_prices_on_goods_id", using: :btree
+  add_index "prices", ["shop_id"], name: "index_prices_on_shop_id", using: :btree
+
+  create_table "product_properties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_properties", ["product_id"], name: "index_product_properties_on_product_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products_tags", id: false, force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "tag_id",     null: false
+  end
+
+  add_index "products_tags", ["product_id", "tag_id"], name: "index_products_tags_on_product_id_and_tag_id", unique: true, using: :btree
+  add_index "products_tags", ["tag_id", "product_id"], name: "index_products_tags_on_tag_id_and_product_id", using: :btree
+
   create_table "shops", force: :cascade do |t|
     t.integer  "city_id"
     t.integer  "store_chain_id"
@@ -67,4 +110,12 @@ ActiveRecord::Schema.define(version: 20150510172903) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "prices", "shops"
+  add_foreign_key "product_properties", "products"
 end
