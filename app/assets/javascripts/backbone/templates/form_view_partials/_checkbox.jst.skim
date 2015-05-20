@@ -1,8 +1,5 @@
-div.control-group
-  label.control-label = @label
-  div.controls
-    - for i of @variants
-      - item = @variants[i]
-      label.checkbox
-        input type="checkbox" name="#{@fieldName}" data-error-style="inline" value="#{item.id || item}" checked=(i==0)
-        = item.name || item.id || item
+core-label horizontal layout id="#{@viewId}_#{@fieldName}">
+  paper-checkbox role="checkbox" tabindex="0" aria-checked="true" aria-labelledby="{@viewId}_#{@fieldName}" checked=(!!@value)
+  div vertical layout
+    h4 = @label
+    div

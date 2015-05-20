@@ -27,3 +27,9 @@ core-toolbar {
 core-drawer-panel:not([narrow]) #navicon {
   display: none;
 }
+
+.float-add-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
