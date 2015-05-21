@@ -1,0 +1,8 @@
+paper-dropdown-menu label= @label
+  paper-dropdown.dropdown
+    - selected = _.indexOf(_.pluck(@options, 'id'), @value);
+    core-menu.menu id="#{@viewId}_#{@fieldName}" name=@fieldName selected=selected
+      - for i of @options
+        - item  = @options[i]
+        - value = item.id || item
+        paper-item value=value = item.name || item.id || item

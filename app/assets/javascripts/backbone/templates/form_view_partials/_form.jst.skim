@@ -1,0 +1,8 @@
+form.form-horizontal.unless.end action="#" class="#{@className}" method="POST"
+  fieldset
+    - if !!@legend
+      legend= @legend
+    - for key of @fields
+      == @getInput(name: key)
+    .form-actions
+      button#submit.btn.btn-primary type="submit"  Save changes

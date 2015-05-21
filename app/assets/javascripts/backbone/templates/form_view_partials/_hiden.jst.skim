@@ -1,0 +1,1 @@
+input type="hidden" id="#{@viewId}_#{@fieldName}" name="#{@fieldName}" value=@value

@@ -1,5 +1,5 @@
 core-label horizontal layout id="#{@viewId}_#{@fieldName}">
-  paper-checkbox role="checkbox" tabindex="0" aria-checked="true" aria-labelledby="{@viewId}_#{@fieldName}" checked=(!!@value)
+  paper-checkbox role="checkbox" tabindex="0" aria-checked="true" aria-labelledby="{@viewId}_#{@fieldName}" name="#{@fieldName}" checked=(!!@value)
   div vertical layout
     h4 = @label
     div

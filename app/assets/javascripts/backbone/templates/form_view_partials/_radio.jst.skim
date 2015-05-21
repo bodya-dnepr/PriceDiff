@@ -1,0 +1,5 @@
+label for="#{@viewId}_#{@fieldName}" = @label
+paper-radio-group id="#{@viewId}_#{@fieldName}" selected="radio_0"
+  - for i of @options
+    - opt = @options[i]
+    paper-radio-button name="radio_#{i}" label="#{opt.name || opt.id || opt}" value="#{opt.id || opt}"

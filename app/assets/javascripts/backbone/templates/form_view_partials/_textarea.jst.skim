@@ -1,0 +1,3 @@
+paper-autogrow-textarea
+  textarea id="#{@viewId}_#{@fieldName}" name="#{@fieldName}" aria-label=@label placeholder=@label
+    = @value

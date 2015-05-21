@@ -1,0 +1,4 @@
+paper-input-decorator id="#{@viewId}_#{@fieldName}" floatinglabel label=@label labelvisible="true"
+  input is="core-input" type="datetime-local" name="#{@fieldName}" value=@value /
+  / input is="core-input" type="date"  value=@value /
+  / input is="core-input" type="time"  value=@value /
